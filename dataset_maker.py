@@ -23,7 +23,7 @@ def gen_yaml(train_dir, eval_dir, test_dir, classes_txt):
         class_dict[idx] = line.rstrip()
     d = {
         'train' :str(train_dir.resolve()),
-        'eval': str(eval_dir.resolve()),
+        'val': str(eval_dir.resolve()),
         'test': str(test_dir.resolve()),
         'names': class_dict,
 	}
@@ -114,5 +114,5 @@ if __name__ =='__main__':
     copy_files(eval_files, EVAL_DIR)
     copy_files(test_files, TEST_DIR)
 
-    class_txt = IMG_DIR / 'classes.txt'
+    class_txt = ANN_DIR / 'classes.txt'
     gen_yaml(TRAIN_DIR, EVAL_DIR, TEST_DIR, class_txt)
